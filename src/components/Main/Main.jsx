@@ -46,7 +46,8 @@ const Main = ({ products, setProducts }) => {
                   <h4>{product.price}</h4>
                   <h5>{product.name}</h5>
                   <p>{product.ram}</p>
-                  <button>Заказать</button>
+                  <button className='Products__info-buy'>Заказать</button>
+                  <button className='Products__info-cart'>В корзину</button>
                 </div>
               )
             })}
