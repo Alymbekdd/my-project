@@ -1,5 +1,5 @@
 import React from 'react';
-import bg from '../img/IMG_1444.JPG';
+import bg from '../img/IMG_1472.JPG';
 
 const Header = () => {
     return (
