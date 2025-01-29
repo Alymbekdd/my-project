@@ -5,10 +5,10 @@ import human from '../img/6596121 1.png';
 const Main = ({ products, setProducts }) => {
   return (
     <main className='Main'>
-      <div className="container">
 
-        <section className='Menu'>
-          <h2>Онлайн магазин электроники</h2>
+      <section className='Menu'>
+        <div className="container">
+          <h2>Онлайн магазин <br /> электроники</h2>
           <div className="Menu__categories">
             <p>Планшеты</p>
             <p>Смартфоны</p>
@@ -19,7 +19,10 @@ const Main = ({ products, setProducts }) => {
             <p>Телевизоры, мониторы</p>
             <p>Наушники, микрофоны, калонки</p>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <div className="container">
 
         <section className='Products'>
 
