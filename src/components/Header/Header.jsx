@@ -1,19 +1,32 @@
 import React from 'react';
 import bg from '../img/IMG_1472.JPG';
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+    const location = useLocation();
+    const isMain = location.pathname === "/";
+    const isBuyPage = location.pathname.startsWith("/Buy");
+
     return (
         <header class="Header">
-            <img src={bg} alt="" />
+            {isMain && <img src={bg} alt="Фон" className="Header__bg" />}
             <div class="container">
                 <div className="Header__content">
-                    <h2 className="Header__content-logo">Eloctronics</h2>
+                    <h2 className={`Header__content-logo ${isBuyPage ? "Header__content-black" : ""}`}>Phones</h2>
                     <nav>
                         <ul>
-                            <li><a href="#">Главная</a></li>
-                            <li><a href="#">О нас</a></li>
-                            <li><a href="#">Корзина</a></li>
-                            <li><a href="#">Контакты</a></li>
+                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`} to={'/'}>
+                                <li>Главная</li>
+                            </Link>
+                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`}>
+                                <li>О нас</li>
+                            </Link>
+                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`}>
+                                <li>Контакты</li>
+                            </Link>
+                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`}>
+                                <li>Корзина</li>
+                            </Link>
                         </ul>
                     </nav>
                 </div>

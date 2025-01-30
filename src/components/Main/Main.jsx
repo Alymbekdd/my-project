@@ -1,55 +1,81 @@
-import React from 'react';
+import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import human from '../img/6596121 1.png';
 
-const Main = ({ products, setProducts }) => {
+const Main = ({ products }) => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const location = useLocation();
+  const productsSectionRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+
+  const filteredProducts = selectedCategory === "all"
+    ? products
+    : products.filter((product) => product.model === selectedCategory);
+
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    if (productsSectionRef.current) {
+      productsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+
   return (
     <main className='Main'>
-
-      <section className='Menu'>
-        <div className="container">
-          <h2>Онлайн магазин <br /> электроники</h2>
-          <div className="Menu__categories">
-            <p>Планшеты</p>
-            <p>Смартфоны</p>
-            <p>Playstation</p>
-            <p>Камеры, штативы</p>
-            <p>Клавиатуры, мышки</p>
-            <p>Компьютеры, ноутбуки</p>
-            <p>Телевизоры, мониторы</p>
-            <p>Наушники, микрофоны, калонки</p>
-          </div>
-        </div>
-      </section>
-
       <div className="container">
 
-        <section className='Products'>
+        <section className='Menu'>
+          <h2>Онлайн магазин <br /> смартфонов</h2>
+          <h3>Модели смартфонов</h3>
+          <div className="Menu__categories">
+            <p onClick={() => handleCategoryClick("OPPO")}>OPPO</p>
+            <p onClick={() => handleCategoryClick("Xiaomi")}>Xiaomi</p>
+            <p onClick={() => handleCategoryClick("Apple")}>Apple</p>
+            <p onClick={() => handleCategoryClick("POCO")}>POCO</p>
+            <p onClick={() => handleCategoryClick("Huawei")}>Huawei</p>
+            <p onClick={() => handleCategoryClick("Samsung")}>Samsung</p>
+          </div>
+        </section>
 
-          <select id="categories" name="categories">
-            <option value="category1">Все товары</option>
-            <option value="category2">Телефоны</option>
-            <option value="category3">Планшеты</option>
-            <option value="category4">Playstation</option>
-            <option value="category5">Компьютеры</option>
-            <option value="category6">Мониторы ..</option>
-            <option value="category6">Камеры</option>
-            <option value="category6">Клавиатуры ..</option>
-            <option value="category6">Наушники ..</option>
+        <section ref={productsSectionRef} className='Products'>
+
+          <select id="categories" name="categories"
+            value={selectedCategory}
+            onChange={handleCategoryChange}>
+            <option value="all">Все</option>
+            <option value="OPPO">OPPO</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="Apple">Apple</option>
+            <option value="POCO">POCO</option>
+            <option value="Huawei">Huawei</option>
+            <option value="Samsung">Samsung</option>
           </select>
 
           <div className="Products__info">
-            {products.map((product, idx) => {
+            {filteredProducts.map((product) => {
               return (
-                <div className="Products__info-tovar">
-                  <img className='Products__info-img' src={product.image} alt="" />
-                  <h4>{product.price}</h4>
+                <div className="Products__info-tovar" key={product.id}>
+                  <img className='Products__info-img' src={product.image} alt={product.name} />
+                  <h4>{product.price} сом</h4>
                   <h5>{product.name}</h5>
-                  <p>{product.ram}</p>
-                  <button className='Products__info-buy'>Заказать</button>
+                  <p>{product.ram[0]} / {product.ram[1]}</p>
+                  <Link to={`/Buy/${product.id}`}>
+                    <button className='Products__info-buy'>Заказать</button>
+                  </Link>
                   <button className='Products__info-cart'>В корзину</button>
                 </div>
-              )
+              );
             })}
           </div>
 
@@ -73,15 +99,7 @@ const Main = ({ products, setProducts }) => {
               <div className="Reviews__content-info">
                 <h4>Сали</h4>
                 <div class="Reviews__content-stars">★★★★★</div>
-                <p>Отличный сервис, быстрая доставка! Очень довольна.</p>
-              </div>
-            </div>
-            <div class="Reviews__content-card">
-              <img src={human} alt="" />
-              <div className="Reviews__content-info">
-                <h4>Дмитрий Смирнов</h4>
-                <div class="Reviews__content-stars">★★★★★</div>
-                <p>Качество на высоте, рекомендую!</p>
+                <p>Заказал самсунг пришол Айфон 16. Супер!</p>
               </div>
             </div>
             <div class="Reviews__content-card">
@@ -95,9 +113,17 @@ const Main = ({ products, setProducts }) => {
             <div class="Reviews__content-card">
               <img src={human} alt="" />
               <div className="Reviews__content-info">
-                <h4>Бекназар</h4>
+                <h4>Дмитрий Смирнов</h4>
                 <div class="Reviews__content-stars">★★★★☆</div>
-                <p>Все супер, но хотелось бы больше вариантов доставки.</p>
+                <p>Качество на высоте, рекомендую!</p>
+              </div>
+            </div>
+            <div class="Reviews__content-card">
+              <img src={human} alt="" />
+              <div className="Reviews__content-info">
+                <h4>Бекназар</h4>
+                <div class="Reviews__content-stars">★★★★★</div>
+                <p>Все супер, отличные телефоны и много моделей.</p>
               </div>
             </div>
           </div>
