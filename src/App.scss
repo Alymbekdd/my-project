@@ -74,7 +74,7 @@
 
     h2 {
         font-family: "Inter", sans-serif;
-        font-weight: 600;
+        font-weight: 700;
         color: rgb(255, 255, 255);
         margin-top: 30px;
         font-size: 27px;
@@ -82,7 +82,7 @@
     }
 
     h3 {
-        font-weight: 600;
+        font-weight: 700;
         font-family: "Inter", sans-serif;
         color: rgb(255, 255, 255);
         margin-top: 20px;
@@ -95,7 +95,7 @@
         width: 200px;
         color: rgb(255, 255, 255);
         font-family: "Inter", sans-serif;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 15px;
         cursor: pointer;
         display: flex;
@@ -142,7 +142,12 @@
         &-tovar {
             display: flex;
             flex-direction: column;
-            width: 23%;
+            width: 21%;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid;
+            border-color: #8b8b8b;
 
             h4 {
                 font-family: "Inter", sans-serif;
@@ -202,7 +207,6 @@
         &-img {
             width: 100%;
             border-radius: 7px;
-            box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
         }
 
 
@@ -503,7 +507,7 @@
 
 @media(max-width:870px) {
     .Products__info-tovar {
-          width: 31%;
+          width: 29%;
     }
 }
 
@@ -529,7 +533,7 @@
     }
 
     .Products__info-tovar {
-        width: 48%;
+        width: 42%;
     }
 
 }
