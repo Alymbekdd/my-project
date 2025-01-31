@@ -37,11 +37,10 @@ const Main = ({ products }) => {
 
         <section className='Menu'>
           <h2>Онлайн магазин <br /> смартфонов</h2>
-          <h3>Модели смартфонов</h3>
           <div className="Menu__categories">
-            <p onClick={() => handleCategoryClick("OPPO")}>OPPO</p>
             <p onClick={() => handleCategoryClick("Xiaomi")}>Xiaomi</p>
             <p onClick={() => handleCategoryClick("Apple")}>Apple</p>
+            <p onClick={() => handleCategoryClick("OPPO")}>OPPO</p>
             <p onClick={() => handleCategoryClick("POCO")}>POCO</p>
             <p onClick={() => handleCategoryClick("Huawei")}>Huawei</p>
             <p onClick={() => handleCategoryClick("Samsung")}>Samsung</p>
