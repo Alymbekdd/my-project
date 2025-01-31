@@ -1,5 +1,5 @@
 import React from 'react';
-import bg from '../img/IMG_1472.JPG';
+import bg from '../img/IMG_1498.JPG';
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -17,9 +17,6 @@ const Header = () => {
                         <ul>
                             <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`} to={'/'}>
                                 <li>Главная</li>
-                            </Link>
-                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`}>
-                                <li>О нас</li>
                             </Link>
                             <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`}>
                                 <li>Контакты</li>
