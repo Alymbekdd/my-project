@@ -12,7 +12,11 @@
 
 
 .Header {
-    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.9);
+
+    &__shadow {
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+    }
 
     &__content {
         display: flex;
@@ -46,7 +50,7 @@
             color: #ffffff;
             font-size: 15px;
             font-family: "Inter", sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
         }
 
@@ -59,7 +63,7 @@
 
     img {
         width: 100%;
-        height: 550px;
+        height: 800px;
         position: absolute;
         z-index: -1;
         object-fit: cover;
@@ -70,7 +74,7 @@
 }
 
 .Menu {
-    height: 500px;
+    height: 750px;
 
     h2 {
         font-family: "Inter", sans-serif;
@@ -142,10 +146,7 @@
         &-tovar {
             display: flex;
             flex-direction: column;
-            width: 21%;
-            box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            border-radius: 7px;
+            width: 23%;
 
             h4 {
                 font-family: "Inter", sans-serif;
@@ -172,7 +173,7 @@
             width: 100%;
             height: 30px;
             border-radius: 7px;
-            background-color: rgb(0, 128, 255);
+            background-color: rgb(0, 184, 251);
             font-family: "Inter", sans-serif;
             font-weight: 650;
             border: none;
@@ -181,7 +182,7 @@
             color: rgb(0, 0, 0);
 
             &:hover {
-                background-color: rgb(0, 38, 255);
+                background-color: rgb(0, 149, 255);
             }
         }
 
@@ -195,7 +196,6 @@
             border: 1px solid;
             margin-top: 5px;
             cursor: pointer;
-            color: black;
 
             &:hover {
                 background-color: rgb(213, 213, 213);
@@ -205,6 +205,7 @@
         &-img {
             width: 100%;
             border-radius: 7px;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
         }
 
 
@@ -249,10 +250,11 @@
     font-family: "Inter", sans-serif;
 
     h2 {
-        font-size: 27px;
+        font-size: 25px;
         margin-bottom: 20px;
         text-align: center;
-        font-weight: 500;
+        font-weight: 700;
+        color: #1b1b1b;
     }
 
     &__content {
@@ -266,7 +268,7 @@
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(110, 110, 110, 0.5);
+            box-shadow: 0 0 10px rgba(95, 95, 95, 0.5);
             width: 300px;
             text-align: left;
             display: flex;
@@ -304,47 +306,84 @@
 .Buy {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 35px;
 
-    &__product {
-      display: flex;
-      flex-direction: column;
-
-      img {
-        width: 250px;
+    img {
+        width: 240px;
+        border-radius: 7px;
         border: 1px solid;
-        border-color: rgb(94, 94, 94);
-        border-radius: 10px;
-      }
+        border-color: #5f5f5f;
+    }
+
+    &__infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            color: rgb(26, 26, 26);
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        &-info {
+            display: flex;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            gap: 30px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 110px;
+
+        h4 {
+            font-family: "Inter", sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #2b2a2a;
+        }
+
+        &-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+        }
 
         &-btn {
             width: 100%;
             height: 30px;
-            border-radius: 10px;
-            background-color: rgb(0, 128, 255);
+            border-radius: 7px;
+            background-color: rgb(0, 184, 251);
             font-family: "Inter", sans-serif;
             font-weight: 650;
             border: none;
-            margin-top: 7px;
             cursor: pointer;
-            color: rgb(0, 0, 0);
+            color: black;
 
             &:hover {
-                background-color: rgb(0, 38, 255);
+                background-color: rgb(0, 149, 255);
             }
         }
 
         &-cart {
             width: 100%;
             height: 30px;
-            border-radius: 10px;
+            border-radius: 7px;
             background-color: rgb(255, 255, 255);
             font-family: "Inter", sans-serif;
             font-weight: 650;
             border: 1px solid;
-            margin-top: 5px;
             cursor: pointer;
-            color: black;
 
             &:hover {
                 background-color: rgb(213, 213, 213);
@@ -353,14 +392,146 @@
 
     }
 
-    &__info {
-        display: flex;
-        gap: 70px;
 
-        div {
+
+}
+
+.About {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0 10px;
+
+    &__line {
+        width: 100%;
+        border: 1px solid;
+        border-color: #b4b4b4;
+        margin-top: 30px;
+    }
+
+    &__item {
+        display: flex;
+        margin-top: 40px;
+        gap: 40px;
+        font-family: "Inter", sans-serif;
+
+        h4 {
+            font-size: 15px;
+            color: rgb(26, 26, 26);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        h5 {
+            font-size: 15px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+    }
+
+}
+
+.Cart {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 23px;
+        color: #272626;
+        margin-top: 25px;
+    }
+
+    &__subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        color: #888888;
+    }
+
+    &__pusto {
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        color: #888888;
+    }
+
+    &__tovar {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+
+        img {
+            width: 130px;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+        }
+
+        &-info {
             font-family: "Inter", sans-serif;
             font-size: 14px;
         }
+
+        &-btns {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            text-align: center;
+
+            h4 {
+                font-family: "Inter", sans-serif;
+                font-weight: 700;
+                font-size: 15px;
+                color: #202020;
+            }
+
+        }
+
+        &-btn {
+            width: 100%;
+            height: 30px;
+            border-radius: 7px;
+            background-color: rgb(0, 184, 251);
+            font-family: "Inter", sans-serif;
+            font-weight: 650;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            color: black;
+
+            &:hover {
+                background-color: rgb(0, 149, 255);
+            }
+        }
+
+        &-card {
+            width: 100%;
+            height: 30px;
+            border-radius: 7px;
+            background-color: rgb(255, 255, 255);
+            font-family: "Inter", sans-serif;
+            font-weight: 650;
+            border: 1px solid;
+            cursor: pointer;
+            margin-top: 5px;
+
+            &:hover {
+                background-color: rgb(213, 213, 213);
+            }
+        }
+
+        &-line {
+            border: 1px solid;
+            width: 100%;
+            border-color: #c4c4c4;
+            margin-top: 15px;
+        }
+
     }
 
 }
@@ -505,7 +676,7 @@
 
 @media(max-width:870px) {
     .Products__info-tovar {
-          width: 29%;
+        width: 31%;
     }
 }
 
@@ -523,6 +694,13 @@
     }
 }
 
+@media(max-width:650px) {
+    .Buy__content {
+        width: 240px;
+    }
+
+}
+
 @media(max-width:600px) {
 
     .Footer__contacts {
@@ -531,7 +709,32 @@
     }
 
     .Products__info-tovar {
-        width: 42%;
+        width: 48%;
+    }
+}
+
+@media(max-width:520px) {
+    .Buy__content {
+        width: 75%;
+    }
+
+    .Buy__infos {
+        width: 75%;
+        gap: 20px;
+    }
+
+    .Buy img {
+        width: 75%;
+    }
+
+    .Buy__infos-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .Buy {
+        justify-content: space-around;
+        gap: 20px;
     }
 
 }
@@ -540,10 +743,32 @@
     .Footer {
         padding: 45px 15px;
     }
+
+    .Cart__tovar img {
+        width: 37%;
+    }
+
+    .Cart__tovar-btns {
+        width: 22%;
+    }
 }
 
-@media(max-width:365px) {
+@media(max-width:390px) {
+    .Header__content nav ul {
+        gap: 15px;
+    }
+}
+
+@media(max-width:345px) {
     .Header__content nav ul {
         gap: 10px;
+    }
+
+    .Header__content-logo {
+        font-size: 21px;
+    }
+
+    .Header__content-link {
+        font-size: 14px;
     }
 }

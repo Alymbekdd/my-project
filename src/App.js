@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Buy from './components/Main/Buy/Buy';
+import Cart from './components/Main/Cart/Cart';
 import Footer from './components/Footer/Footer';
 
 import FindX7Ultra from './components/img/Oppo_Find_X7_Ultra_672874befa.webp';
@@ -33,6 +34,8 @@ import SamsungGalaxyA06 from './components/img/1.png';
 
 
 function App() {
+  const [buySelectedTovar, setBuySelectedTovar] = useState([]);
+  const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([
     {
       id: 1,
@@ -53,10 +56,7 @@ function App() {
         'Adreno 750',
       ],
       weight: '221 г',
-      acm: [
-        '5 000 mA·ч',
-        '',
-      ]
+      acm: '5 000 mA·ч',
     },
     {
       id: 2,
@@ -77,10 +77,8 @@ function App() {
         'Mali-G68 MC4',
       ],
       weight: '182 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 3,
@@ -101,10 +99,7 @@ function App() {
         'Adreno 610',
       ],
       weight: '186 г',
-      acm: [
-        '5100 mA·ч',
-        'Li-ion',
-      ]
+      acm: '5100 mA·ч',
     },
     {
       id: 4,
@@ -125,10 +120,7 @@ function App() {
         'Adreno 720',
       ],
       weight: '186 г',
-      acm: [
-        '5500 mA·ч',
-        '',
-      ]
+      acm: '5500 mA·ч',
     },
     {
       id: 5,
@@ -149,10 +141,7 @@ function App() {
         'Immortalis-G720 MC12',
       ],
       weight: '209 г',
-      acm: [
-        '5000 mA·ч',
-        'Литий-полимерный (Li-Po)',
-      ]
+      acm: '5000 mA·ч',
     },
     {
       id: 6,
@@ -164,7 +153,7 @@ function App() {
       ],
       price: '52 400',
       model: 'Xiaomi',
-      oc: 'Android 12, Android 13, Android 14',
+      oc: 'Android 12, 13, 14',
       size: '6,67" дюймов',
       display: 'AMOLED',
       date: '2022',
@@ -173,10 +162,7 @@ function App() {
         'Mali-G610 MC6',
       ],
       weight: '202 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
     },
     {
       id: 7,
@@ -188,7 +174,7 @@ function App() {
       ],
       price: '10 900',
       model: 'Xiaomi',
-      oc: 'Android 10, Android 8.1, Android 9',
+      oc: 'Android 10, 8.1, 9',
       size: '6,21" дюймов',
       display: 'AMOLED',
       date: '2018',
@@ -197,10 +183,7 @@ function App() {
         'Adreno 630',
       ],
       weight: '177 г',
-      acm: [
-        '3000 mA·ч',
-        '',
-      ]
+      acm: '3000 mA·ч',
     },
     {
       id: 8,
@@ -221,10 +204,8 @@ function App() {
         'Adreno 750',
       ],
       weight: '220 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 9,
@@ -236,7 +217,7 @@ function App() {
       ],
       price: '178 200',
       model: 'Apple',
-      oc: 'iOS 17, iOS 18',
+      oc: 'iOS 17, 18',
       size: '6,9" дюймов',
       display: 'LTPO Super Retina XDR OLED',
       date: '2024',
@@ -245,10 +226,8 @@ function App() {
         'Apple GPU',
       ],
       weight: '227 г',
-      acm: [
-        '4685 mA·ч',
-        '',
-      ]
+      acm: '4685 mA·ч',
+
     },
     {
       id: 10,
@@ -260,7 +239,7 @@ function App() {
       ],
       price: '52 700',
       model: 'Apple',
-      oc: 'iOS 15, iOS 16, iOS 17, iOS 18',
+      oc: 'iOS 15, 16, 17, 18',
       size: '6,1" дюймов',
       display: 'Super Retina XDR',
       date: '2021',
@@ -269,10 +248,7 @@ function App() {
         'Apple GPU',
       ],
       weight: '174 г',
-      acm: [
-        '3240 mA·ч',
-        '',
-      ]
+      acm: '3240 mA·ч',
     },
     {
       id: 11,
@@ -293,10 +269,8 @@ function App() {
         'Apple GPU',
       ],
       weight: '240 г',
-      acm: [
-        '4323 mA·ч',
-        '',
-      ]
+      acm: '4323 mA·ч',
+
     },
     {
       id: 12,
@@ -317,10 +291,8 @@ function App() {
         'Apple GPU',
       ],
       weight: '194 г',
-      acm: [
-        '3110 mA·ч',
-        '',
-      ]
+      acm: '3110 mA·ч',
+
     },
     {
       id: 13,
@@ -341,10 +313,8 @@ function App() {
         'Adreno 619',
       ],
       weight: '189 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 14,
@@ -365,10 +335,8 @@ function App() {
         'Adreno 725',
       ],
       weight: '181 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 15,
@@ -380,7 +348,7 @@ function App() {
       ],
       price: '17 400',
       model: 'POCO',
-      oc: 'Android 13, Android 14',
+      oc: 'Android 13, 14',
       size: '6,67" дюймов',
       display: 'AMOLED',
       date: '2024',
@@ -389,10 +357,7 @@ function App() {
         'Mali-G57 MC2',
       ],
       weight: '180 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
     },
     {
       id: 16,
@@ -413,10 +378,8 @@ function App() {
         'Adreno 740',
       ],
       weight: '209 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 17,
@@ -437,10 +400,8 @@ function App() {
         'Adreno 610',
       ],
       weight: '207 г',
-      acm: [
-        '6000 mA·ч',
-        '',
-      ]
+      acm: '6000 mA·ч',
+
     },
     {
       id: 18,
@@ -461,10 +422,8 @@ function App() {
         'Maleoon 910',
       ],
       weight: '226 г',
-      acm: [
-        '5200 mA·ч',
-        '',
-      ]
+      acm: '5200 mA·ч',
+
     },
     {
       id: 19,
@@ -485,10 +444,8 @@ function App() {
         'Adreno 730',
       ],
       weight: '209 г',
-      acm: [
-        '4700 mA·ч',
-        '',
-      ]
+      acm: '4700 mA·ч',
+
     },
     {
       id: 20,
@@ -509,10 +466,8 @@ function App() {
         'Mali-G51 MP4',
       ],
       weight: '199 г',
-      acm: [
-        '6000 mA·ч',
-        '',
-      ]
+      acm: '6000 mA·ч',
+
     },
     {
       id: 21,
@@ -533,10 +488,8 @@ function App() {
         'Mali-G52 MC2',
       ],
       weight: '189 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 22,
@@ -557,10 +510,8 @@ function App() {
         'Mali-G52 MC2',
       ],
       weight: '189 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 23,
@@ -581,10 +532,8 @@ function App() {
         'Mali-G52 MC2',
       ],
       weight: '180 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
     {
       id: 24,
@@ -605,10 +554,8 @@ function App() {
         'Mali-G52 MC2',
       ],
       weight: '189 г',
-      acm: [
-        '5000 mA·ч',
-        '',
-      ]
+      acm: '5000 mA·ч',
+
     },
   ]);
 
@@ -616,8 +563,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='/' element={<Main products={products} />} />
-        <Route path='/Buy/:id' element={<Buy products={products} />} />
+        <Route path='/' element={<Main products={products} cart={cart} setCart={setCart}/>} />
+        <Route path='/Buy/:id' element={<Buy products={products} buySelectedTovar={buySelectedTovar} setBuySelectedTovar={setBuySelectedTovar} cart={cart} setCart={setCart}/>} />
+        <Route path='/Cart' element={<Cart cart={cart} setCart={setCart} />} />
       </Routes>
       <Footer />
     </BrowserRouter>

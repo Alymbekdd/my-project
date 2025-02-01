@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import human from '../img/6596121 1.png';
 
-const Main = ({ products }) => {
+const Main = ({ products, cart, setCart }) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const location = useLocation();
   const productsSectionRef = useRef(null);
@@ -12,6 +12,11 @@ const Main = ({ products }) => {
     window.scrollTo(0, 0);
   }, [location]);
 
+  const handleAddToCart = (product) => {
+    if(!cart.find(item => item.id === product.id)) {
+    setCart([...cart, product]);
+    }
+  };
 
   const filteredProducts = selectedCategory === "all"
     ? products
@@ -62,20 +67,27 @@ const Main = ({ products }) => {
           </select>
 
           <div className="Products__info">
-            {filteredProducts.map((product) => {
-              return (
-                <div className="Products__info-tovar" key={product.id}>
-                  <img className='Products__info-img' src={product.image} alt={product.name} />
-                  <h4>{product.price} сом</h4>
-                  <h5>{product.name}</h5>
-                  <p>{product.ram[0]} / {product.ram[1]}</p>
-                  <Link to={`/Buy/${product.id}`}>
-                    <button className='Products__info-buy'>Заказать</button>
-                  </Link>
-                  <button className='Products__info-cart'>В корзину</button>
-                </div>
-              );
-            })}
+            <>
+              {filteredProducts.map((product) => {
+                const isInCart = cart.some(item => item.id === product.id);
+
+                return (
+                  <div className="Products__info-tovar" key={product.id}>
+                    <img className='Products__info-img' src={product.image} alt={product.name} />
+                    <h4>{product.price} сом</h4>
+                    <h5>{product.name}</h5>
+                    <p>{product.ram[0]} / {product.ram[1]}</p>
+                    <Link to={`/Buy/${product.id}`}>
+                      <button className='Products__info-buy'>Заказать</button>
+                    </Link>
+                    <button onClick={() => handleAddToCart(product)} className='Products__info-cart'>
+                      {isInCart ? 'Добавлено' : 'В корзину'}
+                    </button>
+                  </div>
+
+                );
+              })}
+            </>
           </div>
 
         </section>
@@ -96,15 +108,15 @@ const Main = ({ products }) => {
             <div class="Reviews__content-card">
               <img src={human} alt="" />
               <div className="Reviews__content-info">
-                <h4>Сали</h4>
+                <h4>User092</h4>
                 <div class="Reviews__content-stars">★★★★★</div>
-                <p>Заказал самсунг пришол Айфон 16. Супер!</p>
+                <p>Заказал самсунг S25 все круто работает.</p>
               </div>
             </div>
             <div class="Reviews__content-card">
               <img src={human} alt="" />
               <div className="Reviews__content-info">
-                <h4>Екатерина Орлова</h4>
+                <h4>User07</h4>
                 <div class="Reviews__content-stars">★★★★☆</div>
                 <p>Все супер, но хотелось бы больше вариантов доставки.</p>
               </div>
@@ -112,7 +124,7 @@ const Main = ({ products }) => {
             <div class="Reviews__content-card">
               <img src={human} alt="" />
               <div className="Reviews__content-info">
-                <h4>Дмитрий Смирнов</h4>
+                <h4>User324</h4>
                 <div class="Reviews__content-stars">★★★★☆</div>
                 <p>Качество на высоте, рекомендую!</p>
               </div>
@@ -120,7 +132,7 @@ const Main = ({ products }) => {
             <div class="Reviews__content-card">
               <img src={human} alt="" />
               <div className="Reviews__content-info">
-                <h4>Бекназар</h4>
+                <h4>User223</h4>
                 <div class="Reviews__content-stars">★★★★★</div>
                 <p>Все супер, отличные телефоны и много моделей.</p>
               </div>

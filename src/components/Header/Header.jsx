@@ -6,22 +6,23 @@ const Header = () => {
     const location = useLocation();
     const isMain = location.pathname === "/";
     const isBuyPage = location.pathname.startsWith("/Buy");
+    const isCartPage = location.pathname.startsWith("/Cart");
 
     return (
-        <header class="Header">
+        <header className={`Header ${isBuyPage || isCartPage ? "Header__shadow" : ""}`}>
             {isMain && <img src={bg} alt="Фон" className="Header__bg" />}
             <div class="container">
                 <div className="Header__content">
-                    <h2 className={`Header__content-logo ${isBuyPage ? "Header__content-black" : ""}`}>Phones</h2>
+                    <h2 className={`Header__content-logo ${isBuyPage || isCartPage ? "Header__content-black" : ""}`}>Phones</h2>
                     <nav>
                         <ul>
-                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`} to={'/'}>
+                            <Link className={`Header__content-link ${isBuyPage || isCartPage ? "Header__content-black" : ""}`} to={'/'}>
                                 <li>Главная</li>
                             </Link>
-                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`}>
+                            <Link className={`Header__content-link ${isBuyPage || isCartPage ? "Header__content-black" : ""}`}>
                                 <li>Контакты</li>
                             </Link>
-                            <Link className={`Header__content-link ${isBuyPage ? "Header__content-black" : ""}`}>
+                            <Link className={`Header__content-link ${isBuyPage || isCartPage ? "Header__content-black" : ""}`} to={'/Cart'}>
                                 <li>Корзина</li>
                             </Link>
                         </ul>
