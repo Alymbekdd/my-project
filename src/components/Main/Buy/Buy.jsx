@@ -139,7 +139,7 @@ const Buy = ({ products, setBuySelectedTovar, cart, setCart }) => {
               <p>{tovar.ram[0]} / {tovar.ram[1]}</p>
               <p>{tovar.acm}</p>
               <p>{tovar.weight}</p>
-              <p>{tovar.display}</p>
+              <p>{truncateText(tovar.display)}</p>
               <p>{tovar.size}</p>
               <p>{truncateText(tovar.cpu[0])}</p>
             </div>

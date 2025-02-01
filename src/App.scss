@@ -296,13 +296,12 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 35px;
+    margin-top: 20px;
 
     img {
         width: 240px;
         border-radius: 7px;
-        border: 1px solid;
-        border-color: #aaaaaa;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
     }
 
     &__infos {
